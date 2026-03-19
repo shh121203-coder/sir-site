@@ -1,5 +1,44 @@
 let chart;
+function setVirus(type) {
+  const presets = {
+    covid: {
+      population: 1000,
+      infected: 3,
+      beta: 0.35,
+      gamma: 0.1,
+      days: 120
+    },
+    flu: {
+      population: 1000,
+      infected: 2,
+      beta: 0.2,
+      gamma: 0.12,
+      days: 80
+    },
+    measles: {
+      population: 1000,
+      infected: 1,
+      beta: 0.8,
+      gamma: 0.1,
+      days: 100
+    },
+    ebola: {
+      population: 1000,
+      infected: 1,
+      beta: 0.25,
+      gamma: 0.07,
+      days: 140
+    }
+  };
 
+  const selected = presets[type];
+
+  document.getElementById("population").value = selected.population;
+  document.getElementById("infected").value = selected.infected;
+  document.getElementById("beta").value = selected.beta;
+  document.getElementById("gamma").value = selected.gamma;
+  document.getElementById("days").value = selected.days;
+}
 function runSimulation() {
   const N = parseInt(document.getElementById("population").value);
   const I0 = parseInt(document.getElementById("infected").value);
