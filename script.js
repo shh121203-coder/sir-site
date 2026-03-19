@@ -38,7 +38,7 @@ function setVirus(type) {
   document.getElementById("beta").value = selected.beta;
   document.getElementById("gamma").value = selected.gamma;
   document.getElementById("days").value = selected.days;
-}
+runSimulation();}
 function runSimulation() {
   const N = parseInt(document.getElementById("population").value);
   const I0 = parseInt(document.getElementById("infected").value);
