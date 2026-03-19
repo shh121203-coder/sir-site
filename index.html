@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SIR Simulation</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>SIR 감염병 시뮬레이션</h1>
+    <p>감수성 인구(S), 감염자(I), 회복자(R)의 변화를 확인해보세요.</p>
+
+    <div class="controls">
+      <label>
+        총 인구:
+        <input type="number" id="population" value="1000" />
+      </label>
+
+      <label>
+        초기 감염자:
+        <input type="number" id="infected" value="1" />
+      </label>
+
+      <label>
+        감염률 β:
+        <input type="number" id="beta" value="0.3" step="0.01" />
+      </label>
+
+      <label>
+        회복률 γ:
+        <input type="number" id="gamma" value="0.1" step="0.01" />
+      </label>
+
+      <label>
+        시뮬레이션 일수:
+        <input type="number" id="days" value="100" />
+      </label>
+
+      <button onclick="runSimulation()">시뮬레이션 실행</button>
+    </div>
+
+    <div class="result">
+      <h2>결과</h2>
+      <canvas id="sirChart" width="800" height="400"></canvas>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
