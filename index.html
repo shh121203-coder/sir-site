@@ -10,7 +10,13 @@
   <div class="container">
     <h1>SIR 감염병 시뮬레이션</h1>
     <p>감수성 인구(S), 감염자(I), 회복자(R)의 변화를 확인해보세요.</p>
-
+<div class="virus-buttons">
+  <h2>바이러스 선택</h2>
+  <button onclick="setVirus('covid')">코로나19</button>
+  <button onclick="setVirus('flu')">독감</button>
+  <button onclick="setVirus('measles')">홍역</button>
+  <button onclick="setVirus('ebola')">에볼라</button>
+</div>
     <div class="controls">
       <label>
         총 인구:
