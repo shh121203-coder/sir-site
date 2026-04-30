@@ -10,14 +10,12 @@ function setVirus(type) {
 
     const selected = presets[type];
 
-    // 입력창 수치 변경
     document.getElementById("population").value = selected.population;
     document.getElementById("infected").value = selected.infected;
     document.getElementById("beta").value = selected.beta;
     document.getElementById("gamma").value = selected.gamma;
     document.getElementById("days").value = selected.days;
 
-    // 상세 정보 섹션 업데이트
     const infoSection = document.getElementById('virus-info-section');
     const infoTitle = document.getElementById('info-title');
     const infoLink = document.getElementById('info-link');
@@ -27,22 +25,22 @@ function setVirus(type) {
     if (type === 'covid') {
         infoTitle.innerText = "코로나19 정보 센터";
         infoLink.innerText = "코로나19 상세페이지 이동";
-        infoLink.href = "./info-covid.html"; 
+        infoLink.href = "./info-covid.html";
         infoLink.style.backgroundColor = "#2563eb";
     } else if (type === 'flu') {
         infoTitle.innerText = "독감 정보 센터";
         infoLink.innerText = "독감 상세페이지 이동";
-        infoLink.href = "./info-flu.html"; 
+        infoLink.href = "./info-flu.html";
         infoLink.style.backgroundColor = "#f59e0b";
     } else if (type === 'measles') {
         infoTitle.innerText = "홍역 정보 센터";
         infoLink.innerText = "홍역 상세페이지 이동";
-        infoLink.href = "./info-measles.html"; 
+        infoLink.href = "./info-measles.html";
         infoLink.style.backgroundColor = "#ef4444";
     } else if (type === 'ebola') {
         infoTitle.innerText = "에볼라 정보 센터";
         infoLink.innerText = "에볼라 상세페이지 이동";
-        infoLink.href = "./info-ebola.html"; 
+        infoLink.href = "./info-ebola.html";
         infoLink.style.backgroundColor = "#4b5563";
     }
 
@@ -50,37 +48,30 @@ function setVirus(type) {
 }
 
 function runSimulation() {
+    // 1. 값 가져오기
     const N = parseInt(document.getElementById("population").value);
     const I0 = parseInt(document.getElementById("infected").value);
     const beta = parseFloat(document.getElementById("beta").value);
     const gamma = parseFloat(document.getElementById("gamma").value);
     const days = parseInt(document.getElementById("days").value);
 
+    // 2. 초기화
     let S = N - I0;
     let I = I0;
     let R = 0;
+    const sData = [S], iData = [I], rData = [R], labels = [0];
 
-    const sData = [S];
-    const iData = [I];
-    const rData = [R];
-    const labels = [0];
-
-    // 시뮬레이션 계산
+    // 3. 계산 루프
     for (let t = 1; t <= days; t++) {
         const newInfected = (beta * S * I) / N;
         const newRecovered = gamma * I;
-
         S -= newInfected;
         I += newInfected - newRecovered;
         R += newRecovered;
-
-        sData.push(S);
-        iData.push(I);
-        rData.push(R);
-        labels.push(t);
+        sData.push(S); iData.push(I); rData.push(R); labels.push(t);
     }
 
-    // --- 상태 바 업데이트 (차트 그리기 전에 실행) ---
+    // 4. 상태 바 업데이트 (차트 그리기 직전에 실행)
     const maxInfected = Math.max(...iData);
     const peakPercent = ((maxInfected / N) * 100).toFixed(1);
 
@@ -88,18 +79,15 @@ function runSimulation() {
     const infectionBar = document.getElementById('infection-bar');
     const peakText = document.getElementById('peak-percentage');
 
-    if (statusContainer && infectionBar && peakText) {
-        statusContainer.style.display = 'block'; // 숨겨진 바 보이기
-        infectionBar.style.width = peakPercent + "%"; // 바 길이 조절
-        peakText.innerText = peakPercent + "%"; // 숫자 표시
+    if (statusContainer) {
+        statusContainer.style.display = 'block';
+        if (infectionBar) infectionBar.style.width = peakPercent + "%";
+        if (peakText) peakText.innerText = peakPercent + "%";
     }
 
-    // --- 차트 그리기 ---
+    // 5. 차트 그리기
     const ctx = document.getElementById("sirChart").getContext("2d");
-
-    if (chart) {
-        chart.destroy();
-    }
+    if (chart) { chart.destroy(); }
 
     chart = new Chart(ctx, {
         type: "line",
@@ -119,4 +107,4 @@ function runSimulation() {
             }
         }
     });
-} // 함수 끝! 중괄호 꼭 확인
+}
