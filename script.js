@@ -39,6 +39,27 @@ function setVirus(type) {
   document.getElementById("gamma").value = selected.gamma;
   document.getElementById("days").value = selected.days;
 runSimulation();}
+// 상세 정보 섹션 업데이트
+    const infoSection = document.getElementById('virus-info-section');
+    const infoTitle = document.getElementById('info-title');
+    const infoLink = document.getElementById('info-link');
+
+    // 숨겨져 있던 섹션을 화면에 표시
+    infoSection.style.display = 'block';
+
+    if (type === 'covid') {
+        infoTitle.innerText = "코로나19 (COVID-19)";
+        infoLink.href = "https://korean.cdc.gov/coronavirus/2019-ncov/index.html";
+    } else if (type === 'flu') {
+        infoTitle.innerText = "독감 (Influenza)";
+        infoLink.href = "https://www.who.int/news-room/fact-sheets/detail/influenza-(seasonal)";
+    } else if (type === 'measles') {
+        infoTitle.innerText = "홍역 (Measles)";
+        infoLink.href = "https://www.who.int/news-room/fact-sheets/detail/measles";
+    } else if (type === 'ebola') {
+        infoTitle.innerText = "에볼라 (Ebola)";
+        infoLink.href = "https://www.who.int/news-room/fact-sheets/detail/ebola-virus-disease";
+    }
 function runSimulation() {
   const N = parseInt(document.getElementById("population").value);
   const I0 = parseInt(document.getElementById("infected").value);
