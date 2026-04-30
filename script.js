@@ -78,7 +78,18 @@ function runSimulation() {
         rData.push(R);
         labels.push(t);
     }
+// --- 상태 바 업데이트 로직 추가 ---
+    const maxInfected = Math.max(...iData); // 감염자 데이터 중 최댓값 찾기
+    const peakPercent = ((maxInfected / N) * 100).toFixed(1); // 백분율 계산 (소수점 첫째자리까지)
 
+    const statusContainer = document.getElementById('status-container');
+    const infectionBar = document.getElementById('infection-bar');
+    const peakText = document.getElementById('peak-percentage');
+
+    statusContainer.style.display = 'block'; // 숨겨져 있던 컨테이너 표시
+    infectionBar.style.width = peakPercent + "%"; // 바 길이 조절
+    peakText.innerText = peakPercent + "%"; // 텍스트 업데이트
+    // --------------------------------
     const ctx = document.getElementById("sirChart").getContext("2d");
 
     if (chart) {
