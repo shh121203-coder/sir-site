@@ -38,6 +38,34 @@ function setVirus(type) {
   document.getElementById("beta").value = selected.beta;
   document.getElementById("gamma").value = selected.gamma;
   document.getElementById("days").value = selected.days;
+// 상세 정보 섹션 업데이트
+    const infoSection = document.getElementById('virus-info-section');
+    const infoTitle = document.getElementById('info-title');
+    const infoLink = document.getElementById('info-link');
+
+    infoSection.style.display = 'block';
+
+    if (type === 'covid') {
+        infoTitle.innerText = "코로나19 정보 센터";
+        infoLink.innerText = "코로나19 상세페이지 이동";
+        infoLink.href = "info-covid.html";
+        infoLink.style.backgroundColor = "#2563eb"; // 파란색
+    } else if (type === 'flu') {
+        infoTitle.innerText = "독감 정보 센터";
+        infoLink.innerText = "독감 상세페이지 이동";
+        infoLink.href = "info-flu.html";
+        infoLink.style.backgroundColor = "#f59e0b"; // 주황색
+    } else if (type === 'measles') {
+        infoTitle.innerText = "홍역 정보 센터";
+        infoLink.innerText = "홍역 상세페이지 이동";
+        infoLink.href = "info-measles.html";
+        infoLink.style.backgroundColor = "#ef4444"; // 빨간색
+    } else if (type === 'ebola') {
+        infoTitle.innerText = "에볼라 정보 센터";
+        infoLink.innerText = "에볼라 상세페이지 이동";
+        infoLink.href = "info-ebola.html";
+        infoLink.style.backgroundColor = "#4b5563"; // 회색
+    }
 runSimulation();}
 // 상세 정보 섹션 업데이트
     const infoSection = document.getElementById('virus-info-section');
