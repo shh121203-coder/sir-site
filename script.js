@@ -69,7 +69,7 @@ function runSimulation() {
         I += newInfected - newRecovered;
         R += newRecovered;
         sData.push(S); iData.push(I); rData.push(R); labels.push(t);
-    }
+
 
     // 4. 상태 바 업데이트 (차트 그리기 직전에 실행)
     const maxInfected = Math.max(...iData);
