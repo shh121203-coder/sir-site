@@ -69,3 +69,23 @@ button:hover {
   padding: 10px 14px;
   font-size: 14px;
 }
+.info-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #10b981;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.3s;
+    margin-top: 10px;
+}
+
+.info-btn:hover {
+    background-color: #059669;
+}
+
+#virus-info-section h3 {
+    margin-top: 0;
+    color: #333;
+}
