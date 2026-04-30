@@ -77,7 +77,7 @@ function runSimulation() {
         iData.push(I);
         rData.push(R);
         labels.push(t);
-    }
+    
 // --- 상태 바 업데이트 로직 추가 ---
     const maxInfected = Math.max(...iData); // 감염자 데이터 중 최댓값 찾기
     const peakPercent = ((maxInfected / N) * 100).toFixed(1); // 백분율 계산 (소수점 첫째자리까지)
