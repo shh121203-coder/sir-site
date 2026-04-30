@@ -65,6 +65,7 @@ function runSimulation() {
     const rData = [R];
     const labels = [0];
 
+    // 시뮬레이션 계산
     for (let t = 1; t <= days; t++) {
         const newInfected = (beta * S * I) / N;
         const newRecovered = gamma * I;
@@ -77,19 +78,23 @@ function runSimulation() {
         iData.push(I);
         rData.push(R);
         labels.push(t);
-    
-// --- 상태 바 업데이트 로직 추가 ---
-    const maxInfected = Math.max(...iData); // 감염자 데이터 중 최댓값 찾기
-    const peakPercent = ((maxInfected / N) * 100).toFixed(1); // 백분율 계산 (소수점 첫째자리까지)
+    }
+
+    // --- 상태 바 업데이트 (차트 그리기 전에 실행) ---
+    const maxInfected = Math.max(...iData);
+    const peakPercent = ((maxInfected / N) * 100).toFixed(1);
 
     const statusContainer = document.getElementById('status-container');
     const infectionBar = document.getElementById('infection-bar');
     const peakText = document.getElementById('peak-percentage');
 
-    statusContainer.style.display = 'block'; // 숨겨져 있던 컨테이너 표시
-    infectionBar.style.width = peakPercent + "%"; // 바 길이 조절
-    peakText.innerText = peakPercent + "%"; // 텍스트 업데이트
-    // --------------------------------
+    if (statusContainer && infectionBar && peakText) {
+        statusContainer.style.display = 'block'; // 숨겨진 바 보이기
+        infectionBar.style.width = peakPercent + "%"; // 바 길이 조절
+        peakText.innerText = peakPercent + "%"; // 숫자 표시
+    }
+
+    // --- 차트 그리기 ---
     const ctx = document.getElementById("sirChart").getContext("2d");
 
     if (chart) {
@@ -108,12 +113,10 @@ function runSimulation() {
         },
         options: {
             responsive: true,
-            plugins: { legend: { position: "top" } },
             scales: {
                 x: { title: { display: true, text: "일수" } },
                 y: { title: { display: true, text: "인구 수" } }
             }
         }
     });
-}
-}
+} // 함수 끝! 중괄호 꼭 확인
