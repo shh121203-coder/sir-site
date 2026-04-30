@@ -27,22 +27,22 @@ function setVirus(type) {
     if (type === 'covid') {
         infoTitle.innerText = "코로나19 정보 센터";
         infoLink.innerText = "코로나19 상세페이지 이동";
-        infoLink.href = "info-covid.html";
+        infoLink.href = "./info-covid.html"; 
         infoLink.style.backgroundColor = "#2563eb";
     } else if (type === 'flu') {
         infoTitle.innerText = "독감 정보 센터";
         infoLink.innerText = "독감 상세페이지 이동";
-        infoLink.href = "info-flu.html";
+        infoLink.href = "./info-flu.html"; 
         infoLink.style.backgroundColor = "#f59e0b";
     } else if (type === 'measles') {
         infoTitle.innerText = "홍역 정보 센터";
         infoLink.innerText = "홍역 상세페이지 이동";
-        infoLink.href = "info-measles.html";
+        infoLink.href = "./info-measles.html"; 
         infoLink.style.backgroundColor = "#ef4444";
     } else if (type === 'ebola') {
         infoTitle.innerText = "에볼라 정보 센터";
         infoLink.innerText = "에볼라 상세페이지 이동";
-        infoLink.href = "info-ebola.html";
+        infoLink.href = "./info-ebola.html"; 
         infoLink.style.backgroundColor = "#4b5563";
     }
 
