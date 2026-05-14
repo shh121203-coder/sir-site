@@ -89,3 +89,57 @@ button:hover {
     margin-top: 0;
     color: #333;
 }
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 28px 0 20px;
+}
+
+.summary-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 22px 20px;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+}
+
+.summary-card span {
+  display: block;
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 10px;
+}
+
+.summary-card strong {
+  display: block;
+  font-size: 26px;
+  color: #0f172a;
+}
+
+.summary-card:nth-child(1) strong {
+  color: #ef4444;
+}
+
+.summary-card:nth-child(2) strong {
+  color: #2563eb;
+}
+
+.summary-card:nth-child(3) strong {
+  color: #f59e0b;
+}
+
+.summary-card:nth-child(4) strong {
+  color: #16a34a;
+}
+
+@media (max-width: 768px) {
+  .summary-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .summary-card strong {
+    font-size: 22px;
+  }
+}
