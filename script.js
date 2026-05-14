@@ -204,29 +204,29 @@ function runSimulation() {
     type: "line",
     data: {
       labels: labels,
-      datasets: [
-        {
-          label: "S 감수성 인구",
-          data: sData,
-          borderColor: "blue",
-          backgroundColor: "transparent",
-          tension: 0.25
-        },
-        {
-          label: "I 감염자",
-          data: iData,
-          borderColor: "red",
-          backgroundColor: "transparent",
-          tension: 0.25
-        },
-        {
-          label: "R 회복자",
-          data: rData,
-          borderColor: "green",
-          backgroundColor: "transparent",
-          tension: 0.25
-        }
-      ]
+     datasets: [
+  {
+    label: "S 감수성 인구",
+    data: sData,
+    borderColor: "#2563eb",
+    backgroundColor: "transparent",
+    tension: 0.25
+  },
+  {
+    label: "I 감염자",
+    data: iData,
+    borderColor: "#111827",
+    backgroundColor: "transparent",
+    tension: 0.25
+  },
+  {
+    label: "R 회복자",
+    data: rData,
+    borderColor: "#9ca3af",
+    backgroundColor: "transparent",
+    tension: 0.25
+  }
+]
     },
     options: {
       responsive: true,
