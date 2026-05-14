@@ -3,25 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SIR Simulation</title>
+  <title>SIR 감염병 시뮬레이션</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <div class="container">
     <h1>SIR 감염병 시뮬레이션</h1>
     <p>감수성 인구(S), 감염자(I), 회복자(R)의 변화를 확인해보세요.</p>
-<div class="virus-buttons">
-  <h2>바이러스 선택</h2>
-  <button onclick="setVirus('covid')">코로나19</button>
-  <button onclick="setVirus('flu')">독감</button>
-  <button onclick="setVirus('measles')">홍역</button>
-  <button onclick="setVirus('ebola')">에볼라</button>
-</div>
+
+    <div class="virus-buttons">
+      <h2>바이러스 선택</h2>
+      <button onclick="setVirus('covid')">코로나19</button>
+      <button onclick="setVirus('flu')">독감</button>
+      <button onclick="setVirus('measles')">홍역</button>
+      <button onclick="setVirus('ebola')">에볼라</button>
+    </div>
+
     <div id="virus-info-section" style="margin-top: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 10px; display: none;">
-    <h3 id="info-title">바이러스 정보</h3>
-    <p id="info-description">선택한 바이러스에 대한 자세한 정보를 확인하세요.</p>
-    <a id="info-link" href="#" target="_blank" class="info-btn">상세 정보 페이지로 이동</a>
-</div>
+      <h3 id="info-title">바이러스 정보</h3>
+      <p id="info-description">선택한 바이러스에 대한 자세한 정보를 확인하세요.</p>
+      <a id="info-link" href="#" target="_blank" class="info-btn">상세 정보 페이지로 이동</a>
+    </div>
+
     <div class="controls">
       <label>
         총 인구:
@@ -50,16 +54,22 @@
 
       <button onclick="runSimulation()">시뮬레이션 실행</button>
     </div>
-<div id="status-container" style="margin-top: 30px; display: none;">
-    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-        <span style="font-weight: bold; color: #475569;">실시간 최대 감염율</span>
+
+    <div id="status-container" style="margin-top: 30px; display: none;">
+      <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+        <span style="font-weight: bold; color: #475569;">*시뮬레이션 기간 중 최고 감염률</span>
         <span id="peak-percentage" style="font-weight: bold; color: #ef4444;">0%</span>
+      </div>
+
+      <div style="width: 100%; background-color: #e2e8f0; border-radius: 10px; height: 20px; overflow: hidden;">
+        <div id="infection-bar" style="width: 0%; height: 100%; background-color: #ef4444; transition: width 0.5s;"></div>
+      </div>
+
+      <p style="font-size: 0.85rem; color: #64748b; margin-top: 8px;">
+        * 시뮬레이션 기간 중 가장 높았던 감염자 비율입니다.
+      </p>
     </div>
-    <div style="width: 100%; background-color: #e2e8f0; border-radius: 10px; height: 20px; overflow: hidden;">
-        <div id="infection-bar" style="width: 0%; height: 100%; background-color: #ef4444; transition: width 0.5s ease-out;"></div>
-    </div>
-    <p style="font-size: 0.85rem; color: #64748b; margin-top: 8px;">* 시뮬레이션 기간 중 가장 높았던 감염자 비율입니다.</p>
-</div>
+
     <div class="result">
       <h2>결과</h2>
       <canvas id="sirChart" width="800" height="400"></canvas>
