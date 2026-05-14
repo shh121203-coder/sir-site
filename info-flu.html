@@ -1,24 +1,205 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <title>독감 정보</title>
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; background: #fffbeb; }
-        .card { background: white; padding: 30px; border-radius: 15px; max-width: 600px; margin: auto; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        h1 { color: #f59e0b; border-bottom: 2px solid #f59e0b; padding-bottom: 10px; }
-        .back-btn { display: inline-block; margin-top: 20px; text-decoration: none; color: #f59e0b; font-weight: bold; border: 1px solid #f59e0b; padding: 8px 15px; border-radius: 5px; }
-    </style>
+  <meta charset="UTF-8">
+  <title>독감 상세 정보</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f8fafc, #e0f2fe);
+      margin: 0;
+      padding: 40px 20px;
+      color: #1e293b;
+    }
+
+    .detail-container {
+      max-width: 860px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 28px;
+      padding: 44px;
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+    }
+
+    .detail-header {
+      border-bottom: 2px solid #2563eb;
+      padding-bottom: 24px;
+      margin-bottom: 30px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #dbeafe;
+      color: #2563eb;
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: 34px;
+      color: #2563eb;
+      margin: 0 0 12px;
+    }
+
+    .summary {
+      font-size: 17px;
+      line-height: 1.8;
+      color: #475569;
+      margin: 0;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .info-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 24px;
+    }
+
+    .info-card h2 {
+      font-size: 20px;
+      margin: 0 0 12px;
+      color: #0f172a;
+    }
+
+    .info-card p,
+    .info-card li {
+      font-size: 15px;
+      color: #475569;
+      line-height: 1.7;
+    }
+
+    .info-card ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    .sir-box {
+      margin-top: 28px;
+      padding: 26px;
+      background: #eff6ff;
+      border-left: 6px solid #2563eb;
+      border-radius: 20px;
+    }
+
+    .sir-box h2 {
+      margin: 0 0 12px;
+      color: #1e3a8a;
+      font-size: 22px;
+    }
+
+    .sir-box p {
+      margin: 0;
+      color: #334155;
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 34px;
+      padding: 13px 22px;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      border-radius: 14px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .back-btn:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      .detail-container {
+        padding: 30px 24px;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="card">
-        <h1>🤒 독감 상세 정보</h1>
-        <p>인플루엔자 바이러스에 의해 발생하는 급성 호흡기 질환입니다.</p>
+  <main class="detail-container">
+    <section class="detail-header">
+      <span class="badge">계절성 호흡기 감염병</span>
+      <h1>🤧 독감 상세 정보</h1>
+      <p class="summary">
+        독감은 인플루엔자 바이러스에 의해 발생하는 급성 호흡기 감염병입니다.
+        매년 계절적으로 유행할 수 있으며, 짧은 기간 안에 많은 사람에게 전파될 수 있습니다.
+      </p>
+    </section>
+
+    <section class="info-grid">
+      <div class="info-card">
+        <h2>주요 증상</h2>
         <ul>
-            <li><strong>주요 증상:</strong> 고열, 두통, 근육통</li>
-            <li><strong>예방법:</strong> 매년 예방접종 권장</li>
+          <li>갑작스러운 고열</li>
+          <li>오한</li>
+          <li>근육통</li>
+          <li>두통</li>
+          <li>기침과 인후통</li>
         </ul>
-        <a href="index.html" class="back-btn">← 시뮬레이션으로 돌아가기</a>
-    </div>
+      </div>
+
+      <div class="info-card">
+        <h2>전파 경로</h2>
+        <p>
+          독감은 감염자의 기침이나 재채기에서 나오는 비말을 통해 전파됩니다.
+          또한 바이러스가 묻은 손이나 물건을 만진 뒤 눈, 코, 입을 만질 때 감염될 수 있습니다.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h2>예방 방법</h2>
+        <ul>
+          <li>독감 예방접종</li>
+          <li>손 씻기</li>
+          <li>기침 예절 지키기</li>
+          <li>아플 때 외출 자제</li>
+          <li>사람이 많은 공간에서 주의하기</li>
+        </ul>
+      </div>
+
+      <div class="info-card">
+        <h2>감염 확산 특징</h2>
+        <p>
+          독감은 짧은 기간 동안 빠르게 확산될 수 있습니다.
+          감염률 β가 높으면 감염자 수가 빠르게 증가하지만, 회복률 γ가 높으면 감염 정점 이후 감소 속도도 빨라집니다.
+        </p>
+      </div>
+    </section>
+
+    <section class="sir-box">
+      <h2>SIR 시뮬레이션에서의 의미</h2>
+      <p>
+        독감은 계절성 감염병의 확산 양상을 이해하는 데 적합한 사례입니다.
+        시뮬레이션에서는 감염률과 회복률 변화에 따라 감염 정점이 언제 나타나는지,
+        그리고 감염자가 얼마나 빠르게 줄어드는지를 확인할 수 있습니다.
+      </p>
+    </section>
+
+    <a href="index.html" class="back-btn">← 시뮬레이션으로 돌아가기</a>
+  </main>
 </body>
 </html>
