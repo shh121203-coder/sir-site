@@ -1,24 +1,204 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <title>코로나19 정보</title>
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; background: #f4f4f8; }
-        .card { background: white; padding: 30px; border-radius: 15px; max-width: 600px; margin: auto; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        h1 { color: #2563eb; border-bottom: 2px solid #2563eb; padding-bottom: 10px; }
-        .back-btn { display: inline-block; margin-top: 20px; text-decoration: none; color: #2563eb; font-weight: bold; border: 1px solid #2563eb; padding: 8px 15px; border-radius: 5px; }
-    </style>
+  <meta charset="UTF-8">
+  <title>코로나19 상세 정보</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f8fafc, #e0f2fe);
+      margin: 0;
+      padding: 40px 20px;
+      color: #1e293b;
+    }
+
+    .detail-container {
+      max-width: 860px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 28px;
+      padding: 44px;
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+    }
+
+    .detail-header {
+      border-bottom: 2px solid #2563eb;
+      padding-bottom: 24px;
+      margin-bottom: 30px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #dbeafe;
+      color: #2563eb;
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: 34px;
+      color: #2563eb;
+      margin: 0 0 12px;
+    }
+
+    .summary {
+      font-size: 17px;
+      line-height: 1.8;
+      color: #475569;
+      margin: 0;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .info-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 24px;
+    }
+
+    .info-card h2 {
+      font-size: 20px;
+      margin: 0 0 12px;
+      color: #0f172a;
+    }
+
+    .info-card p,
+    .info-card li {
+      font-size: 15px;
+      color: #475569;
+      line-height: 1.7;
+    }
+
+    .info-card ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    .sir-box {
+      margin-top: 28px;
+      padding: 26px;
+      background: #eff6ff;
+      border-left: 6px solid #2563eb;
+      border-radius: 20px;
+    }
+
+    .sir-box h2 {
+      margin: 0 0 12px;
+      color: #1e3a8a;
+      font-size: 22px;
+    }
+
+    .sir-box p {
+      margin: 0;
+      color: #334155;
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 34px;
+      padding: 13px 22px;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      border-radius: 14px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .back-btn:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      .detail-container {
+        padding: 30px 24px;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="card">
-        <h1>🦠 코로나19 상세 정보</h1>
-        <p>코로나19는 SARS-CoV-2 바이러스에 의해 발생하는 감염병입니다.</p>
+  <main class="detail-container">
+    <section class="detail-header">
+      <span class="badge">호흡기 감염병</span>
+      <h1>🦠 코로나19 상세 정보</h1>
+      <p class="summary">
+        코로나19는 SARS-CoV-2 바이러스에 의해 발생하는 감염병입니다.
+        주로 호흡기 비말과 접촉을 통해 전파되며, 감염률과 회복률에 따라 확산 규모가 달라질 수 있습니다.
+      </p>
+    </section>
+
+    <section class="info-grid">
+      <div class="info-card">
+        <h2>주요 증상</h2>
         <ul>
-            <li><strong>주요 증상:</strong> 발열, 기침, 피로감</li>
-            <li><strong>예방법:</strong> 마스크 착용, 손 씻기</li>
+          <li>발열</li>
+          <li>기침</li>
+          <li>인후통</li>
+          <li>피로감</li>
+          <li>후각 또는 미각 저하</li>
         </ul>
-        <a href="index.html" class="back-btn">← 시뮬레이션으로 돌아가기</a>
-    </div>
+      </div>
+
+      <div class="info-card">
+        <h2>전파 경로</h2>
+        <p>
+          감염자의 기침, 재채기, 대화 중 발생하는 비말과 밀접 접촉을 통해 전파될 수 있습니다.
+          환기가 부족한 실내에서는 공기 중 입자를 통한 전파 위험도 커질 수 있습니다.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h2>예방 방법</h2>
+        <ul>
+          <li>마스크 착용</li>
+          <li>손 씻기</li>
+          <li>실내 환기</li>
+          <li>백신 접종</li>
+          <li>증상 발생 시 접촉 최소화</li>
+        </ul>
+      </div>
+
+      <div class="info-card">
+        <h2>감염 확산 특징</h2>
+        <p>
+          감염률 β가 높아지면 감염자 수가 빠르게 증가합니다.
+          반대로 회복률 γ가 높아지면 감염 상태에 머무는 시간이 줄어들어 확산 규모가 낮아질 수 있습니다.
+        </p>
+      </div>
+    </section>
+
+    <section class="sir-box">
+      <h2>SIR 시뮬레이션에서의 의미</h2>
+      <p>
+        코로나19 사례에서는 감염률 β와 회복률 γ를 조절해 감염 확산 속도와 정점 시점을 비교할 수 있습니다.
+        이를 통해 감염병 확산에서 예방 행동과 회복 속도가 전체 인구 변화에 어떤 영향을 주는지 이해할 수 있습니다.
+      </p>
+    </section>
+
+    <a href="index.html" class="back-btn">← 시뮬레이션으로 돌아가기</a>
+  </main>
 </body>
 </html>
