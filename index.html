@@ -4,20 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SIR 감염병 시뮬레이션</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
 
 <body>
   <div class="container">
-    <h1>SIR 감염병 시뮬레이션</h1>
-    <p>감수성 인구(S), 감염자(I), 회복자(R)의 변화를 확인해보세요.</p>
+    <h1>감염병 확산 시뮬레이터</h1>
+    <p>
+      SIR 모델을 활용해 감수성 인구, 감염자, 회복자의 변화를 시각적으로 확인해보세요.
+    </p>
 
     <div class="virus-buttons">
       <h2>바이러스 선택</h2>
-      <button onclick="setVirus('covid')">코로나19</button>
-      <button onclick="setVirus('flu')">독감</button>
-      <button onclick="setVirus('measles')">홍역</button>
-      <button onclick="setVirus('ebola')">에볼라</button>
+      <button type="button" onclick="setVirus('covid')">코로나19</button>
+      <button type="button" onclick="setVirus('flu')">독감</button>
+      <button type="button" onclick="setVirus('measles')">홍역</button>
+      <button type="button" onclick="setVirus('ebola')">에볼라</button>
     </div>
 
     <div id="virus-info-section" style="margin-top: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 10px; display: none;">
@@ -28,36 +30,36 @@
 
     <div class="controls">
       <label>
-        총 인구:
+        총 인구
         <input type="number" id="population" value="1000" />
       </label>
 
       <label>
-        초기 감염자:
+        초기 감염자
         <input type="number" id="infected" value="1" />
       </label>
 
       <label>
-        감염률 β:
+        감염률 β
         <input type="number" id="beta" value="0.3" step="0.01" />
       </label>
 
       <label>
-        회복률 γ:
+        회복률 γ
         <input type="number" id="gamma" value="0.1" step="0.01" />
       </label>
 
       <label>
-        시뮬레이션 일수:
+        시뮬레이션 일수
         <input type="number" id="days" value="100" />
       </label>
 
-      <button onclick="runSimulation()">시뮬레이션 실행</button>
+      <button type="button" onclick="runSimulation()">시뮬레이션 실행</button>
     </div>
 
     <div id="status-container" style="margin-top: 30px; display: none;">
       <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-        <span style="font-weight: bold; color: #475569;">*시뮬레이션 기간 중 최고 감염률</span>
+        <span style="font-weight: bold; color: #475569;">시뮬레이션 기간 중 최고 감염률</span>
         <span id="peak-percentage" style="font-weight: bold; color: #ef4444;">0%</span>
       </div>
 
@@ -66,78 +68,85 @@
       </div>
 
       <p style="font-size: 0.85rem; color: #64748b; margin-top: 8px;">
-        * 시뮬레이션 기간 중 가장 높았던 감염자 비율입니다.
+        시뮬레이션 기간 중 가장 높았던 감염자 비율입니다.
       </p>
     </div>
-    
-<div class="summary-cards">
-  <div class="summary-card">
-    <span>최고 감염률</span>
-    <strong id="summary-peak-rate">0%</strong>
-  </div>
 
-  <div class="summary-card">
-    <span>감염 정점</span>
-    <strong id="summary-peak-day">0일차</strong>
-  </div>
+    <div class="summary-cards">
+      <div class="summary-card">
+        <span>최고 감염률</span>
+        <strong id="summary-peak-rate">0%</strong>
+      </div>
 
-  <div class="summary-card">
-    <span>최고 감염자</span>
-    <strong id="summary-peak-count">0명</strong>
-  </div>
+      <div class="summary-card">
+        <span>감염 정점</span>
+        <strong id="summary-peak-day">0일차</strong>
+      </div>
 
-  <div class="summary-card">
-    <span>확산 위험도</span>
-    <strong id="summary-risk">-</strong>
-  </div>
-</div>
-    
+      <div class="summary-card">
+        <span>최고 감염자</span>
+        <strong id="summary-peak-count">0명</strong>
+      </div>
+
+      <div class="summary-card">
+        <span>확산 위험도</span>
+        <strong id="summary-risk">-</strong>
+      </div>
+    </div>
+
+    <div class="interpretation-box">
+      <h2>결과 해석</h2>
+      <p id="result-text">
+        시뮬레이션을 실행하면 감염 확산 결과에 대한 해석이 표시됩니다.
+      </p>
+    </div>
+
     <div class="result">
       <h2>결과</h2>
       <canvas id="sirChart" width="800" height="400"></canvas>
     </div>
-  </div>
 
-  <div class="sir-site-link-wrap">
-  <button class="sir-site-link" onclick="openSirModal()">
-    SIR 사이트란?
-  </button>
-</div>
-
-<div id="sir-modal" class="sir-modal">
-  <div class="sir-modal-content">
-    <button class="sir-modal-close" onclick="closeSirModal()">×</button>
-
-    <h2>SIR 시뮬레이션 사이트란?</h2>
-
-    <p>
-      이 사이트는 감염병이 사람들 사이에서 어떻게 확산되고 감소하는지를
-      SIR 모델을 통해 시각적으로 보여주는 시뮬레이션 도구입니다.
-    </p>
-
-    <p>
-      SIR 모델은 전체 인구를 감수성 인구(S), 감염자(I), 회복자(R)로 나누어
-      시간에 따른 변화를 계산합니다. 사용자는 총 인구, 초기 감염자 수,
-      감염률, 회복률, 시뮬레이션 기간을 직접 입력하여 감염 확산 과정을
-      그래프로 확인할 수 있습니다.
-    </p>
-
-    <div class="sir-modal-box">
-      <strong>S → I → R</strong>
-      <span>
-        감염될 수 있는 사람이 감염자가 되고, 시간이 지나 회복자로 이동하는 흐름을 나타냅니다.
-      </span>
+    <div class="sir-site-link-wrap">
+      <button type="button" class="sir-site-link" onclick="openSirModal()">
+        SIR 사이트란?
+      </button>
     </div>
-
-    <p>
-      이 사이트의 목적은 감염병 확산의 원리를 어렵지 않게 이해하고,
-      감염률과 회복률의 변화가 사회 전체에 어떤 영향을 미치는지
-      직관적으로 살펴보는 것입니다.
-    </p>
   </div>
-</div>
+
+  <div id="sir-modal" class="sir-modal">
+    <div class="sir-modal-content">
+      <button type="button" class="sir-modal-close" onclick="closeSirModal()">×</button>
+
+      <h2>SIR 시뮬레이션 사이트란?</h2>
+
+      <p>
+        이 사이트는 감염병이 사람들 사이에서 어떻게 확산되고 감소하는지를
+        SIR 모델을 통해 시각적으로 보여주는 시뮬레이션 도구입니다.
+      </p>
+
+      <p>
+        SIR 모델은 전체 인구를 감수성 인구(S), 감염자(I), 회복자(R)로 나누어
+        시간에 따른 변화를 계산합니다. 사용자는 총 인구, 초기 감염자 수,
+        감염률, 회복률, 시뮬레이션 기간을 직접 입력하여 감염 확산 과정을
+        그래프로 확인할 수 있습니다.
+      </p>
+
+      <div class="sir-modal-box">
+        <strong>S → I → R</strong>
+        <span>
+          감염될 수 있는 사람이 감염자가 되고, 시간이 지나 회복자로 이동하는 흐름을 나타냅니다.
+        </span>
+      </div>
+
+      <p>
+        이 사이트의 목적은 감염병 확산의 원리를 쉽게 이해하고,
+        감염률과 회복률의 변화가 사회 전체에 어떤 영향을 미치는지
+        직관적으로 살펴보는 것입니다.
+      </p>
+    </div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="script.js"></script>
+  <script src="./script.js"></script>
 </body>
 </html>
