@@ -1,24 +1,208 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <title>홍역 정보</title>
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; background: #fef2f2; }
-        .card { background: white; padding: 30px; border-radius: 15px; max-width: 600px; margin: auto; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        h1 { color: #ef4444; border-bottom: 2px solid #ef4444; padding-bottom: 10px; }
-        .back-btn { display: inline-block; margin-top: 20px; text-decoration: none; color: #ef4444; font-weight: bold; border: 1px solid #ef4444; padding: 8px 15px; border-radius: 5px; }
-    </style>
+  <meta charset="UTF-8">
+  <title>홍역 상세 정보</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f8fafc, #e0f2fe);
+      margin: 0;
+      padding: 40px 20px;
+      color: #1e293b;
+    }
+
+    .detail-container {
+      max-width: 860px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 28px;
+      padding: 44px;
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+    }
+
+    .detail-header {
+      border-bottom: 2px solid #2563eb;
+      padding-bottom: 24px;
+      margin-bottom: 30px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #dbeafe;
+      color: #2563eb;
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: 34px;
+      color: #2563eb;
+      margin: 0 0 12px;
+    }
+
+    .summary {
+      font-size: 17px;
+      line-height: 1.8;
+      color: #475569;
+      margin: 0;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .info-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 24px;
+    }
+
+    .info-card h2 {
+      font-size: 20px;
+      margin: 0 0 12px;
+      color: #0f172a;
+    }
+
+    .info-card p,
+    .info-card li {
+      font-size: 15px;
+      color: #475569;
+      line-height: 1.7;
+    }
+
+    .info-card ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    .sir-box {
+      margin-top: 28px;
+      padding: 26px;
+      background: #eff6ff;
+      border-left: 6px solid #2563eb;
+      border-radius: 20px;
+    }
+
+    .sir-box h2 {
+      margin: 0 0 12px;
+      color: #1e3a8a;
+      font-size: 22px;
+    }
+
+    .sir-box p {
+      margin: 0;
+      color: #334155;
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 34px;
+      padding: 13px 22px;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      border-radius: 14px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .back-btn:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      .detail-container {
+        padding: 30px 24px;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="card">
-        <h1>🔴 홍역 상세 정보</h1>
-        <p>전염성이 매우 강한 바이러스성 질환으로 발진이 특징입니다.</p>
+  <main class="detail-container">
+    <section class="detail-header">
+      <span class="badge">고전염성 감염병</span>
+      <h1>🔴 홍역 상세 정보</h1>
+      <p class="summary">
+        홍역은 전염성이 매우 높은 바이러스성 감염병입니다.
+        면역이 없는 집단에서는 짧은 시간 안에 빠르게 확산될 수 있어,
+        감염률이 높은 질병 사례로 설명하기 좋습니다.
+      </p>
+    </section>
+
+    <section class="info-grid">
+      <div class="info-card">
+        <h2>주요 증상</h2>
         <ul>
-            <li><strong>주요 증상:</strong> 고열, 기침, 붉은 반점</li>
-            <li><strong>특이사항:</strong> 공기 전파 가능성이 매우 높음</li>
+          <li>고열</li>
+          <li>기침</li>
+          <li>콧물</li>
+          <li>결막염</li>
+          <li>피부 발진</li>
         </ul>
-        <a href="index.html" class="back-btn">← 시뮬레이션으로 돌아가기</a>
-    </div>
+      </div>
+
+      <div class="info-card">
+        <h2>전파 경로</h2>
+        <p>
+          홍역은 공기 중 전파와 비말을 통해 쉽게 퍼질 수 있습니다.
+          감염자가 머문 공간에서도 일정 시간 전파 위험이 남을 수 있어
+          전염성이 매우 높은 질병으로 분류됩니다.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h2>예방 방법</h2>
+        <ul>
+          <li>MMR 백신 접종</li>
+          <li>감염 의심 시 격리</li>
+          <li>환자와의 접촉 피하기</li>
+          <li>유행 지역 방문 전 예방접종 확인</li>
+          <li>집단생활 공간에서 감염 관리</li>
+        </ul>
+      </div>
+
+      <div class="info-card">
+        <h2>감염 확산 특징</h2>
+        <p>
+          홍역은 감염률 β가 매우 높게 설정될 수 있는 질병입니다.
+          시뮬레이션에서는 감염자 곡선이 빠르게 상승하고,
+          감수성 인구가 급격히 감소하는 양상을 확인할 수 있습니다.
+        </p>
+      </div>
+    </section>
+
+    <section class="sir-box">
+      <h2>SIR 시뮬레이션에서의 의미</h2>
+      <p>
+        홍역은 감염률이 높은 상황에서 감염병이 얼마나 빠르게 확산되는지 보여주는 사례입니다.
+        감염률 β를 높게 설정하면 감염자 수가 짧은 시간 안에 급증하고,
+        감염 정점도 빠르게 나타나는 것을 확인할 수 있습니다.
+      </p>
+    </section>
+
+    <a href="index.html" class="back-btn">← 시뮬레이션으로 돌아가기</a>
+  </main>
 </body>
 </html>
