@@ -91,6 +91,21 @@ function runSimulation() {
   const maxInfected = Math.max(...iData);
   const peakPercent = ((maxInfected / N) * 100).toFixed(1);
 
+const peakDay = iData.indexOf(maxInfected);
+
+let riskLevel = "낮음";
+
+if (peakPercent >= 50) {
+  riskLevel = "높음";
+} else if (peakPercent >= 20) {
+  riskLevel = "보통";
+}
+
+document.getElementById("summary-peak-rate").innerText = peakPercent + "%";
+document.getElementById("summary-peak-day").innerText = peakDay + "일차";
+document.getElementById("summary-peak-count").innerText = Math.round(maxInfected) + "명";
+document.getElementById("summary-risk").innerText = riskLevel;
+  
   const statusContainer = document.getElementById("status-container");
   const infectionBar = document.getElementById("infection-bar");
   const peakText = document.getElementById("peak-percentage");
