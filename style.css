@@ -143,3 +143,112 @@ button:hover {
     font-size: 22px;
   }
 }
+
+.sir-site-link-wrap {
+  text-align: center;
+  margin: 28px 0 10px;
+}
+
+.sir-site-link {
+  background: none;
+  border: none;
+  color: #2563eb;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.sir-site-link:hover {
+  color: #1d4ed8;
+}
+
+.sir-modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.55);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.sir-modal-content {
+  position: relative;
+  max-width: 620px;
+  width: 100%;
+  background: white;
+  border-radius: 24px;
+  padding: 34px;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.25);
+}
+
+.sir-modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 18px;
+  color: #0f172a;
+  font-size: 26px;
+}
+
+.sir-modal-content p {
+  color: #475569;
+  line-height: 1.8;
+  font-size: 15px;
+  margin-bottom: 16px;
+}
+
+.sir-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  background: #f1f5f9;
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  color: #475569;
+}
+
+.sir-modal-close:hover {
+  background: #e2e8f0;
+}
+
+.sir-modal-box {
+  margin: 22px 0;
+  padding: 18px 20px;
+  background: #eff6ff;
+  border-left: 5px solid #2563eb;
+  border-radius: 14px;
+}
+
+.sir-modal-box strong {
+  display: block;
+  font-size: 24px;
+  color: #2563eb;
+  margin-bottom: 8px;
+}
+
+.sir-modal-box span {
+  display: block;
+  color: #334155;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .sir-modal-content {
+    padding: 26px;
+  }
+
+  .sir-modal-content h2 {
+    font-size: 22px;
+  }
+}
