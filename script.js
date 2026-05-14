@@ -1,3 +1,5 @@
+alert("script.js 연결됨");
+
 let chart;
 
 function setVirus(type) {
