@@ -88,9 +88,8 @@ function runSimulation() {
     labels.push(t);
   }
 
-  const maxInfected = Math.max(...iData);
-  const peakPercent = ((maxInfected / N) * 100).toFixed(1);
-
+ const maxInfected = Math.max(...iData);
+const peakPercent = ((maxInfected / N) * 100).toFixed(1);
 const peakDay = iData.indexOf(maxInfected);
 
 let riskLevel = "낮음";
@@ -100,6 +99,29 @@ if (peakPercent >= 50) {
 } else if (peakPercent >= 20) {
   riskLevel = "보통";
 }
+
+// 최고 감염률 상태바 업데이트
+const statusContainer = document.getElementById("status-container");
+const infectionBar = document.getElementById("infection-bar");
+const peakText = document.getElementById("peak-percentage");
+
+if (statusContainer) {
+  statusContainer.style.display = "block";
+}
+
+if (infectionBar) {
+  infectionBar.style.width = peakPercent + "%";
+}
+
+if (peakText) {
+  peakText.innerText = peakPercent + "%";
+}
+
+// 요약카드 업데이트
+document.getElementById("summary-peak-rate").innerText = peakPercent + "%";
+document.getElementById("summary-peak-day").innerText = peakDay + "일차";
+document.getElementById("summary-peak-count").innerText = Math.round(maxInfected) + "명";
+document.getElementById("summary-risk").innerText = riskLevel;
 
 document.getElementById("summary-peak-rate").innerText = peakPercent + "%";
 document.getElementById("summary-peak-day").innerText = peakDay + "일차";
