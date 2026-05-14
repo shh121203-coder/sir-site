@@ -196,18 +196,30 @@ document.getElementById("summary-risk").innerText = riskLevel;
     }
   });
   function openSirModal() {
-  document.getElementById("sir-modal").style.display = "flex";
+  const modal = document.getElementById("sir-modal");
+
+  if (modal) {
+    modal.style.display = "flex";
+  }
 }
 
 function closeSirModal() {
-  document.getElementById("sir-modal").style.display = "none";
-}
-
-window.onclick = function(event) {
   const modal = document.getElementById("sir-modal");
 
-  if (event.target === modal) {
+  if (modal) {
     modal.style.display = "none";
   }
-};
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.getElementById("sir-modal");
+
+  if (modal) {
+    modal.addEventListener("click", function (event) {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  }
+});
+ 
