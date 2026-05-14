@@ -146,24 +146,48 @@ button:hover {
 
 .sir-site-link-wrap {
   text-align: center;
-  margin: 28px 0 10px;
+  margin: 30px 0 12px;
 }
 
 .sir-site-link {
-  background: none;
-  border: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: 0;
+  outline: none;
+  box-shadow: none;
+
   color: #2563eb;
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
+
   text-decoration: underline;
-  text-underline-offset: 4px;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 1.5px;
+
+  padding: 4px 6px;
+  border-radius: 8px;
+  transition: color 0.2s ease, background-color 0.2s ease;
 }
 
 .sir-site-link:hover {
   color: #1d4ed8;
+  background-color: rgba(37, 99, 235, 0.06);
 }
 
+.sir-site-link:focus,
+.sir-site-link:active {
+  outline: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+.sir-site-link:focus-visible {
+  outline: 2px solid rgba(37, 99, 235, 0.35);
+  outline-offset: 3px;
+  background: transparent;
+}
 .sir-modal {
   display: none;
   position: fixed;
