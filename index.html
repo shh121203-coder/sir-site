@@ -98,6 +98,45 @@
     </div>
   </div>
 
+  <div class="sir-site-link-wrap">
+  <button class="sir-site-link" onclick="openSirModal()">
+    SIR 사이트란?
+  </button>
+</div>
+
+<div id="sir-modal" class="sir-modal">
+  <div class="sir-modal-content">
+    <button class="sir-modal-close" onclick="closeSirModal()">×</button>
+
+    <h2>SIR 시뮬레이션 사이트란?</h2>
+
+    <p>
+      이 사이트는 감염병이 사람들 사이에서 어떻게 확산되고 감소하는지를
+      SIR 모델을 통해 시각적으로 보여주는 시뮬레이션 도구입니다.
+    </p>
+
+    <p>
+      SIR 모델은 전체 인구를 감수성 인구(S), 감염자(I), 회복자(R)로 나누어
+      시간에 따른 변화를 계산합니다. 사용자는 총 인구, 초기 감염자 수,
+      감염률, 회복률, 시뮬레이션 기간을 직접 입력하여 감염 확산 과정을
+      그래프로 확인할 수 있습니다.
+    </p>
+
+    <div class="sir-modal-box">
+      <strong>S → I → R</strong>
+      <span>
+        감염될 수 있는 사람이 감염자가 되고, 시간이 지나 회복자로 이동하는 흐름을 나타냅니다.
+      </span>
+    </div>
+
+    <p>
+      이 사이트의 목적은 감염병 확산의 원리를 어렵지 않게 이해하고,
+      감염률과 회복률의 변화가 사회 전체에 어떤 영향을 미치는지
+      직관적으로 살펴보는 것입니다.
+    </p>
+  </div>
+</div>
+
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="script.js"></script>
 </body>
