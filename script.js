@@ -277,3 +277,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+document.addEventListener("click", function (event) {
+  const openedTooltips = document.querySelectorAll(".tooltip-details[open]");
+
+  openedTooltips.forEach(function (tooltip) {
+    if (!tooltip.contains(event.target)) {
+      tooltip.removeAttribute("open");
+    }
+  });
+});
