@@ -277,46 +277,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-function toggleTooltip(id) {
-  const tooltip = document.getElementById(id);
-
-  if (!tooltip) {
-    return;
-  }
-
-  const allTooltips = document.querySelectorAll(".tooltip-box");
-
-  allTooltips.forEach(function (box) {
-    if (box.id !== id) {
-      box.classList.remove("is-open");
-    }
-  });
 
   tooltip.classList.toggle("is-open");
 }
-
-document.addEventListener("click", function (event) {
-  const isTooltipButton = event.target.classList.contains("tooltip-btn");
-  const isTooltipBox = event.target.closest(".tooltip-box");
-
-  if (!isTooltipButton && !isTooltipBox) {
-    const allTooltips = document.querySelectorAll(".tooltip-box");
-
-    allTooltips.forEach(function (box) {
-      box.classList.remove("is-open");
-    });
-  }
-});
-
-document.addEventListener("click", function (event) {
-  const isTooltipButton = event.target.classList.contains("tooltip-btn");
-  const isTooltipBox = event.target.closest(".tooltip-box");
-
-  if (!isTooltipButton && !isTooltipBox) {
-    const allTooltips = document.querySelectorAll(".tooltip-box");
-
-    allTooltips.forEach(function (box) {
-      box.style.display = "none";
-    });
-  }
-});
