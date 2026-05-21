@@ -288,16 +288,25 @@ function toggleTooltip(id) {
 
   allTooltips.forEach(function (box) {
     if (box.id !== id) {
-      box.style.display = "none";
+      box.classList.remove("is-open");
     }
   });
 
-  if (tooltip.style.display === "block") {
-    tooltip.style.display = "none";
-  } else {
-    tooltip.style.display = "block";
-  }
+  tooltip.classList.toggle("is-open");
 }
+
+document.addEventListener("click", function (event) {
+  const isTooltipButton = event.target.classList.contains("tooltip-btn");
+  const isTooltipBox = event.target.closest(".tooltip-box");
+
+  if (!isTooltipButton && !isTooltipBox) {
+    const allTooltips = document.querySelectorAll(".tooltip-box");
+
+    allTooltips.forEach(function (box) {
+      box.classList.remove("is-open");
+    });
+  }
+});
 
 document.addEventListener("click", function (event) {
   const isTooltipButton = event.target.classList.contains("tooltip-btn");
