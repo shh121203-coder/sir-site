@@ -278,12 +278,23 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-document.addEventListener("click", function (event) {
+document.addEventListener("pointerdown", function (event) {
   const openedTooltips = document.querySelectorAll(".tooltip-details[open]");
 
   openedTooltips.forEach(function (tooltip) {
     if (!tooltip.contains(event.target)) {
-      tooltip.removeAttribute("open");
+      tooltip.open = false;
+    }
+  });
+});
+document.querySelectorAll(".tooltip-details").forEach(function (detail) {
+  detail.addEventListener("toggle", function () {
+    if (detail.open) {
+      document.querySelectorAll(".tooltip-details").forEach(function (otherDetail) {
+        if (otherDetail !== detail) {
+          otherDetail.open = false;
+        }
+      });
     }
   });
 });
