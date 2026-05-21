@@ -91,7 +91,7 @@ button:hover {
 .info-btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #10b981;
+    background-color: #2563eb;
     color: white;
     text-decoration: none;
     border-radius: 8px;
@@ -101,7 +101,7 @@ button:hover {
 }
 
 .info-btn:hover {
-    background-color: #059669;
+    background-color: #1d4ed8;
 }
 
 #virus-info-section h3 {
@@ -549,19 +549,6 @@ input:focus {
 .disease-info-card strong {
   color: var(--text-main);
 }
-.label-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-
-.label-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
 
 .label-row {
   display: flex;
