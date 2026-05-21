@@ -601,27 +601,71 @@ input:focus {
   display: inline-block;
 }
 
-.tooltip-btn:hover {
+.label-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.tooltip-details {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-details summary {
+  list-style: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 800;
+  text-align: center;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.tooltip-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.tooltip-details summary:hover {
   background: #eff6ff;
   border-color: #2563eb;
 }
 
 .tooltip-box {
-  display: none !important;
-  margin-top: 8px;
-  margin-bottom: 8px;
-  padding: 12px 14px;
-  background: #f9fafb;
+  position: absolute;
+  top: 30px;
+  left: -20px;
+  width: 260px;
+  z-index: 20;
+
+  padding: 14px 16px;
+  background: #ffffff;
   border: 1px solid #e5e7eb;
   border-left: 4px solid #2563eb;
-  border-radius: 12px;
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(17, 24, 39, 0.12);
+
   color: #4b5563;
   font-size: 13px;
   line-height: 1.6;
 }
 
-.tooltip-box.is-open {
-  display: block !important;
+.tooltip-box strong {
+  display: block;
+  margin-bottom: 5px;
+  color: #111827;
+  font-size: 13px;
+}
+
+.tooltip-box p {
+  margin: 0;
+  color: #4b5563;
 }
 
 .tooltip-box strong {
@@ -634,12 +678,4 @@ input:focus {
 .tooltip-box p {
   margin: 0;
   color: #4b5563;
-}
-
-
-.tooltip-box strong {
-  display: block;
-  margin-bottom: 4px;
-  color: #111827;
-  font-size: 13px;
 }
