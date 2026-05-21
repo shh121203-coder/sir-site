@@ -549,3 +549,54 @@ input:focus {
 .disease-info-card strong {
   color: var(--text-main);
 }
+.label-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tooltip-btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+}
+
+.tooltip-btn:hover {
+  background: #eff6ff;
+  border-color: #2563eb;
+}
+
+.tooltip-btn:focus,
+.tooltip-btn:active {
+  outline: none;
+  box-shadow: none;
+}
+
+.tooltip-box {
+  display: none;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding: 12px 14px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-left: 4px solid #2563eb;
+  border-radius: 12px;
+  color: #4b5563;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.tooltip-box strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #111827;
+  font-size: 13px;
+}
