@@ -276,25 +276,42 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
-});
 
-document.addEventListener("pointerdown", function (event) {
-  const openedTooltips = document.querySelectorAll(".tooltip-details[open]");
+  const tooltipDetails = document.querySelectorAll(".tooltip-details");
 
-  openedTooltips.forEach(function (tooltip) {
-    if (!tooltip.contains(event.target)) {
-      tooltip.open = false;
-    }
+  function closeTooltipsExcept(target) {
+    tooltipDetails.forEach(function (tooltip) {
+      if (!tooltip.contains(target)) {
+        tooltip.open = false;
+      }
+    });
+  }
+
+  tooltipDetails.forEach(function (detail) {
+    detail.addEventListener("toggle", function () {
+      if (detail.open) {
+        tooltipDetails.forEach(function (otherDetail) {
+          if (otherDetail !== detail) {
+            otherDetail.open = false;
+          }
+        });
+      }
+    });
   });
-});
-document.querySelectorAll(".tooltip-details").forEach(function (detail) {
-  detail.addEventListener("toggle", function () {
-    if (detail.open) {
-      document.querySelectorAll(".tooltip-details").forEach(function (otherDetail) {
-        if (otherDetail !== detail) {
-          otherDetail.open = false;
-        }
-      });
-    }
-  });
+
+  document.addEventListener(
+    "touchstart",
+    function (event) {
+      closeTooltipsExcept(event.target);
+    },
+    true
+  );
+
+  document.addEventListener(
+    "mousedown",
+    function (event) {
+      closeTooltipsExcept(event.target);
+    },
+    true
+  );
 });
