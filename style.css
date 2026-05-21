@@ -579,9 +579,35 @@ input:focus {
   outline: none;
   box-shadow: none;
 }
+.label-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tooltip-btn {
+  all: unset;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 800;
+  text-align: center;
+  line-height: 20px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.tooltip-btn:hover {
+  background: #eff6ff;
+  border-color: #2563eb;
+}
 
 .tooltip-box {
-  display: none;
+  display: none !important;
   margin-top: 8px;
   margin-bottom: 8px;
   padding: 12px 14px;
@@ -593,6 +619,23 @@ input:focus {
   font-size: 13px;
   line-height: 1.6;
 }
+
+.tooltip-box.is-open {
+  display: block !important;
+}
+
+.tooltip-box strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #111827;
+  font-size: 13px;
+}
+
+.tooltip-box p {
+  margin: 0;
+  color: #4b5563;
+}
+
 
 .tooltip-box strong {
   display: block;
