@@ -277,6 +277,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-
-  tooltip.classList.toggle("is-open");
-}
