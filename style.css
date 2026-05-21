@@ -555,51 +555,13 @@ input:focus {
   gap: 8px;
 }
 
-.tooltip-btn {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 1px solid #d1d5db;
-  background: #ffffff;
-  color: #2563eb;
-  font-size: 12px;
-  font-weight: 800;
-  cursor: pointer;
-  line-height: 1;
-  padding: 0;
-}
 
-.tooltip-btn:hover {
-  background: #eff6ff;
-  border-color: #2563eb;
-}
-
-.tooltip-btn:focus,
-.tooltip-btn:active {
-  outline: none;
-  box-shadow: none;
-}
 .label-row {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.tooltip-btn {
-  all: unset;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 1px solid #d1d5db;
-  background: #ffffff;
-  color: #2563eb;
-  font-size: 12px;
-  font-weight: 800;
-  text-align: center;
-  line-height: 20px;
-  cursor: pointer;
-  display: inline-block;
-}
 
 .label-row {
   display: flex;
@@ -668,14 +630,3 @@ input:focus {
   color: #4b5563;
 }
 
-.tooltip-box strong {
-  display: block;
-  margin-bottom: 4px;
-  color: #111827;
-  font-size: 13px;
-}
-
-.tooltip-box p {
-  margin: 0;
-  color: #4b5563;
-}
